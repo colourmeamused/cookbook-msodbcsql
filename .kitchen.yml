@@ -1,19 +1,14 @@
 ---
 driver:
-  name: vagrant
+  name: ssh
 
 provisioner:
-  name: chef_zero
-
-verifier:
-  name: inspec
+  name: chef_solo
 
 platforms:
-  - name: ubuntu-16.04
+  - name: rhel-7.2
   - name: centos-7.2
-
 suites:
   - name: default
     run_list:
-      - recipe[odbc_sqlserver::default]
-    attributes:
+      - recipe[msodbcsql::default]
